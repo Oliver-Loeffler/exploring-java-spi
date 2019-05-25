@@ -1,6 +1,9 @@
 package greeting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +14,20 @@ public class GreetingTest {
 	private Greeter classUnderTest;
 	
 	@Test
-	void test() {
+	void testImplementation() {
 		classUnderTest = new Greeting("HelloDuke");
 		
 		assertEquals("HelloDuke", classUnderTest.getSalutation());
+	}
+	
+	@Test
+	void testServiceDiscovery() {
+		
+		GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
+		Optional<Greeter> greeter = provider.getGreeter();
+		
+		assertTrue( greeter.isPresent() );
+		
 	}
 
 }
