@@ -43,13 +43,14 @@ dependencies {
     // the current project uses the API
     implementation project(':greeting-api')
 
-    // one API implementation is used for 'test'
-    testRuntimeOnly project(':custom-greeting-library') 
+    // one API implementation is used for runtime
+    runtimeOnly project(':greeting-library')
+    
     testCompileOnly ('org.junit.jupiter:junit-jupiter-api:5.4.0')
     testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
 
-    // another API implementation is used for 'runtime'
-    runtimeOnly project(':greeting-library')
+    // another API implementation is used for testing
+    testRuntimeOnly project(':custom-greeting-library') 
 
     // There is no hook yet for integration tests.
     // For integration tests it is possibly desirable to use 
