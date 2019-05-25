@@ -14,7 +14,7 @@ public class WelcomeTest {
 	void testMyCustomImplementation() {
 		classUnderTest = new Welcome();
 		
-		assertEquals("WelcomeJavaSPI!", classUnderTest.getSalutation());
+		assertEquals("TestLibrary: WelcomeJavaSPI!", classUnderTest.getSalutation());
 	}
 
 }

@@ -7,7 +7,7 @@ public class Welcome implements Greeter {
     private String myCustomWelcomeFormula;
     
     public Welcome() {
-        this.myCustomWelcomeFormula = "WelcomeJavaSPI!";
+        this.myCustomWelcomeFormula = "TestLibrary: WelcomeJavaSPI!";
     }
 
 	@Override

@@ -13,6 +13,7 @@ class GreeterServiceProviderTest {
 
 		assertThrows(IllegalArgumentException.class,
 				()->classUnderTest.getGreeter());
+	
 	}
 
 }

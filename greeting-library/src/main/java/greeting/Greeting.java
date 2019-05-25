@@ -7,7 +7,7 @@ public class Greeting implements Greeter {
     private String slogan;
     
     public Greeting() {
-        this.slogan = "HelloDuke";
+        this.slogan = "ProductionLibrary: HelloDuke";
     }
 
 	@Override

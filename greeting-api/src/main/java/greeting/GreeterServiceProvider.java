@@ -20,8 +20,6 @@ public class GreeterServiceProvider {
 	
 	private ServiceLoader<Greeter> loader;
 	
-	private Class<?> targetImplementation = null;
-
 	private GreeterServiceProvider() {
         loader = ServiceLoader.load(Greeter.class);
     }
@@ -38,39 +36,14 @@ public class GreeterServiceProvider {
 	
 	public Greeter getGreeter() {
 		List<Greeter> greeter = getAllAvailableImplementations();		
-		if (null != targetImplementation) {
-			for (Greeter g : greeter) {
-				if (g.getClass().equals(targetImplementation)) {
-					return g;
-				}
-			}
-			throw new IllegalArgumentException("Target implementation " + this.targetImplementation.getName() + " for " + Greeter.class.getName() + " not found.");
-		}
-		
-		return getFirstImplementation(greeter);
+		return getLastImplementation(greeter);
 	}
 
-	private Greeter getFirstImplementation(List<Greeter> greeter) {
+	private Greeter getLastImplementation(List<Greeter> greeter) {
 		if (greeter.isEmpty()) {
 			throw new IllegalArgumentException("There is no greeter service configured.");
 		}
-		return greeter.get(0);
-	}
-
-	public void setTargetImplementation(String className) {
-		try {
-			this.targetImplementation = Class.forName(className);
-		} catch (ClassNotFoundException e) {
-			new IllegalArgumentException(e);
-		}
-	}
-	
-	public void setTargetImplementation(Class<? extends Greeter> clazz) {
-		this.targetImplementation = clazz;
-	}
-	
-	public void removeTargetImplementation() {
-		this.targetImplementation = null;
+		return greeter.get(greeter.size()-1);
 	}
 
 }
