@@ -10,47 +10,50 @@ Its task is to provide a salutation such as "Welcome", "Hello" or "Hi". How this
 
 The ```greeting-library``` always greets with "HelloDuke" whereas ```custom-greeting-library``` always greets with "WelcomeSPI!".
 
-The motoviation here is, to enable configuration of certain services in production projects using Java SPI mechanism and to swap out test, integration-test and production components by just configuring dependencies in Gradle or Maven properly.
+The motivation here is, to enable configuration of certain services in production projects using Java SPI mechanism and to swap out test, integration-test and production components by just configuring dependencies in Gradle or Maven properly.
 It is also desirable to have only one implementation available at time. Currently the service loader returns the first implementation found.
 
-## Thoughts and Questions
+### _What already works_
 
-As in gradle the testRuntime depends on Runtime, it can happen the multiple service 
-implementations for ```Greeter``` are registered. WHich one to choose?
-As testRuntime depends on Runtime, taking the first one does not necessarily mean, 
-that the service intended for test is provided.
+* API project provides a service provider and the service interface  (```greeting-api```).
+* There are 2 different implementations of the service (```greeting-library``` and ```custom-greeting-library```).
+* There is an application which uses the service interface (```greeting-app```).
+  * The application uses the API project and for runtime one implementation, for test 
+    another implementation.
 
-May be it is a valid approach, to make the ```GreeterServiceProvider``` configurable.
+As the service provider always hands over the last registered service, the service 
+selection is basically defined by adding a project as a dependency to the proper Gradle 
+configuration. 
 
-* if no configuration is used - just provide the first registered service
-* a configuration could be a reference to the desired service implementation class 
-  name (fully qualified class name)
+```groovy
 
-* How to configure:
-  * use an annotation with an argument?
-  * use a specific configuration object?
-  * How to deal with concurrency where certain tests are required to use different 
-    implementations?
-  * Configuration feels flaky - consider how test classes are create, consider scope 
-    of tests and scope of configuration.
-  * Consider usability from witin IDEs such as Eclipse or IntelliJ, testing should 
-    work there properly as well.
+dependencies {
+
+    // the current project uses the API
+    implementation project(':greeting-api')
+
+    // one API implementation is used for 'test'
+    testRuntimeOnly project(':custom-greeting-library') 
+    testCompileOnly ('org.junit.jupiter:junit-jupiter-api:5.4.0')
+    testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+
+    // another API implementation is used for 'runtime'
+    runtimeOnly project(':greeting-library')
+
+    // There is no hook yet for integration tests.
+    // For integration tests it is possibly desirable to use 
+    // the runtime configuration.
+
+}
+
+```
 
 ## Goals
 
 * separate API of a library from its implementation
 * provide different implementations for test, integration-test and build
 * just decide which library to use by adding the dependency in Gradle build at the right stage
-* if possible avoid configuration of gradle, stick with defaults
-
-
-## Achievements so far
-
-* API package is defined, a ServiceProvider class exists (```greeting-api```)
-* There are 2 implementations of ```greeting-api```:
-  * ```greeting-library```
-  * ```custom-greeting-library```
-* There is one application where the ```custom-greeting-library``` is used during test.
+* if possible avoid configuration of Gradle, stick with defaults
 
 ## Open
 
