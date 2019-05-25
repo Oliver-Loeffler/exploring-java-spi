@@ -13,6 +13,17 @@ The ```greeting-library``` always greets with "HelloDuke" whereas ```custom-gree
 The motivation here is, to enable configuration of certain services in production projects using Java SPI mechanism and to swap out test, integration-test and production components by just configuring dependencies in Gradle or Maven properly.
 It is also desirable to have only one implementation available at time. Currently the service loader returns the first implementation found.
 
+### How to run it
+
+```bash
+
+$ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git spidemo-gradle
+$ cd spidemo-gradle
+$ gradle clean check run
+
+```
+
+
 ### _What already works_
 
 * API project provides a service provider and the service interface  (```greeting-api```).
