@@ -1,5 +1,7 @@
 package greeting;
 
+import greeting.spi.Greeter;
+
 public class Greeting implements Greeter {
 
     private String slogan;
