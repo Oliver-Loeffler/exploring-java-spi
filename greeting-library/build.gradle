@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+}
+ 
+test {
+   useJUnitPlatform()
+   testLogging {
+      events "passed", "skipped", "failed"
+   }
+}
+
+dependencies {
+    compile project(':greeting-api')
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.0'
+}
