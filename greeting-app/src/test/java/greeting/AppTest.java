@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import greeting.spi.Greeter;
+
 public class AppTest {
 	
 	private App classUnderTest = new App();

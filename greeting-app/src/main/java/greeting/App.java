@@ -2,6 +2,8 @@ package greeting;
 
 import java.time.LocalDateTime;
 
+import greeting.spi.Greeter;
+
 public class App {
 
     public static void main(String[] args) {
