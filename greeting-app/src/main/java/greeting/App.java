@@ -32,7 +32,7 @@ public class App {
 
 
 	private Greeter getGreetingsProvider() {
-		return new Greeting("Hello!");
+		return new Greeting();
 	}
 
 
