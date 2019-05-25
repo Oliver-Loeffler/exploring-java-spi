@@ -24,7 +24,7 @@ public class AppTest {
 		Class<? extends Greeter> implementationClass 
 			= classUnderTest.getGreeterClass();
 		
-		assertEquals(Greeting.class, implementationClass);
+		assertEquals("other.Welcome", implementationClass.getName());
 	}
 	
 }

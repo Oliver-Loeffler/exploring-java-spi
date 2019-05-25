@@ -16,8 +16,19 @@ mainClassName = 'greeting.App'
 dependencies {
     
     compile project(':greeting-api')
-    compile project(':greeting-library')
+    
 
-    testCompile ('org.junit.jupiter:junit-jupiter-api:5.4.0')
-    testRuntime ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+    testCompileOnly ('org.junit.jupiter:junit-jupiter-api:5.4.0')
+
+    testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+    testRuntimeOnly project(':custom-greeting-library')
+    
+    /*
+     * Goal:
+     *  1) run test with project(':custom-greeting-library')
+     *  2) run integration test with project(':greeting-library')
+     *  3) run final build with another library
+     *
+     */
+
 }
