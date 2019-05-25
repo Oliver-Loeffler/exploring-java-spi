@@ -16,7 +16,7 @@ public class AppTest {
 		String slogan = classUnderTest.getSlogan();
 		
 		assertNotNull(slogan);
-		assertEquals("Hello!", slogan);
+		assertEquals("WelcomeJavaSPI!", slogan);
 	}
 	
 	@Test
