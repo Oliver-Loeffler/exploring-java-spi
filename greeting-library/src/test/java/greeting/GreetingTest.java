@@ -15,7 +15,7 @@ public class GreetingTest {
 	
 	@Test
 	void testImplementation() {
-		classUnderTest = new Greeting("HelloDuke");
+		classUnderTest = new Greeting();
 		
 		assertEquals("HelloDuke", classUnderTest.getSalutation());
 	}
