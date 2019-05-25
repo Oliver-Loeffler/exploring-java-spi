@@ -15,7 +15,7 @@ It is also desirable to have only one implementation available at time. Currentl
 
 ### How to run it
 
-```bash
+```shell
 
 $ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git spidemo-gradle
 $ cd spidemo-gradle
@@ -36,7 +36,7 @@ As the service provider always hands over the last registered service, the servi
 selection is basically defined by adding a project as a dependency to the proper Gradle 
 configuration. 
 
-```groovy
+```gradle
 
 dependencies {
 
