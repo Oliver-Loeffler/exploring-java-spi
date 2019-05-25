@@ -1,2 +1,2 @@
 rootProject.name = 'spidemo-gradle'
-include 'greeting-api', 'greeting-library', 'greeting-app'
+include 'greeting-api', 'greeting-library', 'greeting-app', 'custom-greeting-library'
