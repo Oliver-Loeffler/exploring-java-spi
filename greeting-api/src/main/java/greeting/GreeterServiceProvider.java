@@ -1,6 +1,8 @@
 package greeting;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 import java.util.ServiceLoader;
 
@@ -23,13 +25,22 @@ public class GreeterServiceProvider {
         loader = ServiceLoader.load(Greeter.class);
     }
 	
-	public Optional<Greeter> getGreeter() {
+	protected List<Greeter> getAllAvailableImplementations() {
+		List<Greeter> discoveredImplementations = new ArrayList<>();
 		Iterator<Greeter> availableImplementations = loader.iterator();
 		while(availableImplementations.hasNext()) {
 			Greeter greeter = availableImplementations.next();
-			return Optional.of(greeter);
+			discoveredImplementations.add(greeter);
 		}
-		return Optional.empty();
+		return discoveredImplementations;
     }
+	
+	public Optional<Greeter> getGreeter() {
+		List<Greeter> greeter = getAllAvailableImplementations();
+		if (greeter.isEmpty()) {
+			return Optional.empty();
+		}
+		return Optional.of(greeter.get(0));
+	}
 
 }
