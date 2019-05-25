@@ -1,5 +1,8 @@
 # Exploring Java Service Provider Interface (SPI)
 
+The way how the service provider interface API works has changed with Java 9.
+All details below apply to Java 7 or Java 8, details for most recent Java versions will be added later.
+
 ## Idea
 
 There is a ```Greeter``` interface. This interface has only one method ```String getSalutation();```.
