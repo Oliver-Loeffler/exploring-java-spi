@@ -2,11 +2,7 @@ package greeting;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
-
-import greeting.spi.Greeter;
 
 class GreeterServiceProviderTest {
 	
@@ -14,11 +10,9 @@ class GreeterServiceProviderTest {
 
 	@Test
 	void getGreeterWithoutConfiguration() {
-		
-		Optional<Greeter> greeter = classUnderTest.getGreeter();
-		
-		assertFalse( greeter.isPresent() );
-		
+
+		assertThrows(IllegalArgumentException.class,
+				()->classUnderTest.getGreeter());
 	}
 
 }

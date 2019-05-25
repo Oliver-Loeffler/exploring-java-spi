@@ -13,6 +13,25 @@ The ```greeting-library``` always greets with "HelloDuke" whereas ```custom-gree
 The motoviation here is, to enable configuration of certain services in production projects using Java SPI mechanism and to swap out test, integration-test and production components by just configuring dependencies in Gradle or Maven properly.
 It is also desirable to have only one implementation available at time. Currently the service loader returns the first implementation found.
 
+## Thoughts and Questions
+
+As in gradle the testRuntime depends on Runtime, it can happen the multiple service 
+implementations for ```Greeter``` are registered. WHich one to choose?
+As testRuntime depends on Runtime, taking the first one does not necessarily mean, 
+that the service intended for test is provided.
+
+May be it is a valid approach, to make the ```GreeterServiceProvider``` configurable.
+
+* if no configuration is used - just provide the first registered service
+* a configuration could be a reference to the desired service implementation class 
+  name (fully qualified class name)
+
+* How to configure:
+  * use an annotation with an argument?
+  * use a specific configuration object?
+  * How to deal with concurrency where certain tests are required to use different 
+    implementations?
+
 ## Goals
 
 * separate API of a library from its implementation

@@ -1,7 +1,6 @@
 package greeting;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import greeting.spi.Greeter;
 
@@ -20,7 +19,7 @@ public class App {
     	
     	print(getStartupMessage());
     	print(getSlogan());
-    	
+    	print("Service implementation used: " + greeter.getClass().getName());
     }
     
     public String getSlogan() {
@@ -33,15 +32,9 @@ public class App {
 
 
 	private Greeter getGreeterImplementation() {
-		
 		GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
-		Optional<Greeter> service = provider.getGreeter();
-		
-		if (service.isPresent()) {
-			return service.get();
-		}
-		
-		throw new IllegalArgumentException("There is no greeter service configured.");
+		Greeter service = provider.getGreeter();
+		return service;
 	}
 
 
