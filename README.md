@@ -13,6 +13,11 @@ The ```greeting-library``` always greets with "HelloDuke" whereas ```custom-gree
 The motivation here is, to enable configuration of certain services in production projects using Java SPI mechanism and to swap out test, integration-test and production components by just configuring dependencies in Gradle or Maven properly.
 It is also desirable to have only one implementation available at time. Currently the service loader returns the first implementation found.
 
+Root cause for this experimentation is one of my work projects, where I would like 
+to avoid expensive calls to a HTTP/SOAP based service. Test data shall be provided 
+from within the main project.
+ 
+
 ### How to run it
 
 ```shell
