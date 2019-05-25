@@ -3,7 +3,6 @@ package greeting;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.ServiceLoader;
 
 import greeting.spi.Greeter;
@@ -35,12 +34,12 @@ public class GreeterServiceProvider {
 		return discoveredImplementations;
     }
 	
-	public Optional<Greeter> getGreeter() {
+	public Greeter getGreeter() {
 		List<Greeter> greeter = getAllAvailableImplementations();
 		if (greeter.isEmpty()) {
-			return Optional.empty();
+			throw new IllegalArgumentException("There is no greeter service configured.");
 		}
-		return Optional.of(greeter.get(0));
+		return greeter.get(0);
 	}
 
 }

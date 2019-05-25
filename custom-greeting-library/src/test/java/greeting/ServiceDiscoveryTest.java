@@ -25,7 +25,7 @@ public class ServiceDiscoveryTest {
 	@Test
 	void welcomeIsExpectedAsImplementation() {
 		
-		Greeter greeter = provider.getGreeter().get();
+		Greeter greeter = provider.getGreeter();
 		
 		Class<? extends Greeter> discoveredClass = greeter.getClass();
 		
