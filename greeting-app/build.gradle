@@ -22,7 +22,7 @@ dependencies {
     testRuntimeOnly project(':custom-greeting-library')
     testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
     
-    // runtimeOnly project(':greeting-library')
+    runtimeOnly project(':greeting-library')
     
     /*
      * Goal:
