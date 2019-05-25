@@ -33,6 +33,8 @@ May be it is a valid approach, to make the ```GreeterServiceProvider``` configur
     implementations?
   * Configuration feels flaky - consider how test classes are create, consider scope 
     of tests and scope of configuration.
+  * Consider usability from witin IDEs such as Eclipse or IntelliJ, testing should 
+    work there properly as well.
 
 ## Goals
 
