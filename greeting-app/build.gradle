@@ -1,0 +1,23 @@
+plugins {
+    id 'java'        
+    id 'application'
+    id 'eclipse'
+}
+
+test {
+    useJUnitPlatform()
+        testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+mainClassName = 'greeting.App' 
+
+dependencies {
+    
+    compile project(':greeting-api')
+    compile project(':greeting-library')
+
+    testCompile ('org.junit.jupiter:junit-jupiter-api:5.4.0')
+    testRuntime ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+}
