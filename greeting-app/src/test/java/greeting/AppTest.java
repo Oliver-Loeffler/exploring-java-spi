@@ -1,0 +1,28 @@
+package greeting;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
+
+public class AppTest {
+	
+	private App classUnderTest = new App();
+	
+	@Test
+	void getSlogan() {
+		String slogan = classUnderTest.getSlogan();
+		
+		assertNotNull(slogan);
+		assertEquals("Hello!", slogan);
+	}
+	
+	@Test
+	void getGreeterImplementationClass() {
+		Class<? extends Greeter> implementationClass 
+			= classUnderTest.getGreeterClass();
+		
+		assertEquals(Greeting.class, implementationClass);
+	}
+	
+}
