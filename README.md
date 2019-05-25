@@ -31,6 +31,8 @@ May be it is a valid approach, to make the ```GreeterServiceProvider``` configur
   * use a specific configuration object?
   * How to deal with concurrency where certain tests are required to use different 
     implementations?
+  * Configuration feels flaky - consider how test classes are create, consider scope 
+    of tests and scope of configuration.
 
 ## Goals
 
