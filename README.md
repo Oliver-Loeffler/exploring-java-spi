@@ -22,8 +22,8 @@ from within the main project.
 
 ```shell
 
-$ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git spidemo-gradle
-$ cd spidemo-gradle
+$ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git
+$ cd exploring-java-spi
 $ gradle clean check run
 
 ```
