@@ -1,7 +1,9 @@
 # Exploring Java Service Provider Interface (SPI)
 
+#### Platform: Java 8
 The way how the service provider interface API works has changed with Java 9.
 All details below apply to Java 7 or Java 8, details for most recent Java versions will be added later.
+For JPMS there will be a separate project.
 
 ## Idea
 
