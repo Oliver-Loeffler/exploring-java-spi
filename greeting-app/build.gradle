@@ -17,10 +17,10 @@ dependencies {
     
     implementation project(':greeting-api')
 
-    testCompileOnly ('org.junit.jupiter:junit-jupiter-api:5.4.0')
+    testCompileOnly ('org.junit.jupiter:junit-jupiter-api:5.6.1')
 
     testRuntimeOnly project(':custom-greeting-library')
-    testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.4.0')
+    testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine:5.6.1')
     
     runtimeOnly project(':greeting-library')
     
