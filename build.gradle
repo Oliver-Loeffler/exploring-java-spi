@@ -7,3 +7,9 @@ allprojects {
 subprojects {
     version = '1.0'
 }
+
+
+wrapper {
+    distributionType = Wrapper.DistributionType.BIN
+    gradleVersion = "6.3"
+}
