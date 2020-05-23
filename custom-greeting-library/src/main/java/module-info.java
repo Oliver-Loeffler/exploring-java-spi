@@ -1,6 +1,8 @@
 module customized {
     requires api;
     
-    uses greeting.service.GreeterServiceProvider;
-    uses greeting.service.spi.Greeter;
+    exports other;
+    
+    provides greeting.service.spi.Greeter 
+        with other.Welcome;
 }
