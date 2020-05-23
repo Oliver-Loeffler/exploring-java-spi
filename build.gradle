@@ -22,5 +22,5 @@ subprojects {
 
 wrapper {
     distributionType = Wrapper.DistributionType.BIN
-    gradleVersion = "6.4"
+    gradleVersion = "6.5-milestone-2"
 }
