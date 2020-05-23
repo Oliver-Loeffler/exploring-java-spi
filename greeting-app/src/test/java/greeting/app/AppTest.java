@@ -12,7 +12,7 @@ public class AppTest {
 	private App classUnderTest = new App();
 	
 	@Test
-	void getSlogan() {
+	void that_app_provides_the_expected_slogan() {
 		String slogan = classUnderTest.getSlogan();
 		
 		assertNotNull(slogan);
@@ -20,7 +20,7 @@ public class AppTest {
 	}
 	
 	@Test
-	void getGreeterImplementationClass() {
+	void that_customized_library_is_used_during_test() {
 		Class<? extends Greeter> implementationClass 
 			= classUnderTest.getGreeterClass();
 		

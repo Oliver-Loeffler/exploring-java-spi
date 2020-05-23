@@ -11,7 +11,8 @@ public class WelcomeTest {
 	private Greeter classUnderTest;
 	
 	@Test
-	void testMyCustomImplementation() {
+	void that_welcome_is_the_greeting() {
+
 		classUnderTest = new Welcome();
 		
 		assertEquals("TestLibrary: WelcomeJavaSPI!", classUnderTest.getSalutation());
