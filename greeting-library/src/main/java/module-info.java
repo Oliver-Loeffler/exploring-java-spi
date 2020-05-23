@@ -2,5 +2,8 @@ module library {
     requires api;
     
     uses greeting.service.GreeterServiceProvider;
-    uses greeting.service.spi.Greeter;
+
+    provides greeting.service.spi.Greeter 
+        with greeting.library.Greeting;
+        
 }

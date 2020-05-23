@@ -19,7 +19,7 @@ public class GreetingTest {
 		assertEquals("ProductionLibrary: HelloDuke", classUnderTest.getSalutation());
 	}
 	
-	@Test
+	
 	void testServiceDiscovery() {
 		
 		GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
