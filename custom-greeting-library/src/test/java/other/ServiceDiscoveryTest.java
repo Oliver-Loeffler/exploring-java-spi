@@ -1,19 +1,20 @@
-package greeting;
+package other;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import greeting.service.GreeterServiceProvider;
 import greeting.service.spi.Greeter;
-import other.Welcome;
 
 public class ServiceDiscoveryTest {
 	
 	private final GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
 	
+	@DisplayName("that only 1 service is discovered")
 	@Test
 	void thereMustBeOnlyOneImplementation() {
 		
@@ -23,6 +24,7 @@ public class ServiceDiscoveryTest {
 		
 	}
 	
+	@DisplayName("that Welcome.class is discovered as service")
 	@Test
 	void welcomeIsExpectedAsImplementation() {
 		
