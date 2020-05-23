@@ -1,6 +1,6 @@
 package other;
 
-import greeting.spi.Greeter;
+import greeting.service.spi.Greeter;
 
 public class Welcome implements Greeter {
 

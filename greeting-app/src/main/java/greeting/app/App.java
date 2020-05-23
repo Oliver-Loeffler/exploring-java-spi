@@ -1,8 +1,9 @@
-package greeting;
+package greeting.app;
 
 import java.time.LocalDateTime;
 
-import greeting.spi.Greeter;
+import greeting.service.GreeterServiceProvider;
+import greeting.service.spi.Greeter;
 
 public class App {
 

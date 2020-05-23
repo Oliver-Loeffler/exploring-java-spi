@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import greeting.spi.Greeter;
+import greeting.service.spi.Greeter;
 
 public class WelcomeTest {
 

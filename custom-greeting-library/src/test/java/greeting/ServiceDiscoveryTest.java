@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import greeting.spi.Greeter;
+import greeting.service.GreeterServiceProvider;
+import greeting.service.spi.Greeter;
 import other.Welcome;
 
 public class ServiceDiscoveryTest {

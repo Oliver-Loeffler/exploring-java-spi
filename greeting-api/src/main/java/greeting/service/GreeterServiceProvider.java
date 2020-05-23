@@ -1,11 +1,11 @@
-package greeting;
+package greeting.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ServiceLoader;
 
-import greeting.spi.Greeter;
+import greeting.service.spi.Greeter;
 
 public class GreeterServiceProvider {
 
@@ -24,7 +24,7 @@ public class GreeterServiceProvider {
         loader = ServiceLoader.load(Greeter.class);
     }
 	
-	protected List<Greeter> getAllAvailableImplementations() {
+	public List<Greeter> getAllAvailableImplementations() {
 		List<Greeter> discoveredImplementations = new ArrayList<>();
 		Iterator<Greeter> availableImplementations = loader.iterator();
 		while(availableImplementations.hasNext()) {

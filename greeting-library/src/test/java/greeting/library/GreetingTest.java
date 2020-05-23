@@ -1,11 +1,12 @@
-package greeting;
+package greeting.library;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import greeting.spi.Greeter;
+import greeting.service.GreeterServiceProvider;
+import greeting.service.spi.Greeter;
 
 public class GreetingTest {
 

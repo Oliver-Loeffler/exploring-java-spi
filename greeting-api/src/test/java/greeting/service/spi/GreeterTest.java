@@ -1,12 +1,10 @@
-package greeting.spi;
+package greeting.service.spi;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import greeting.spi.Greeter;
 
 public class GreeterTest {
 
