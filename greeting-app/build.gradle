@@ -9,7 +9,10 @@ test {
     }
 }
 
-mainClassName = 'greeting.app.App' 
+application {
+    mainClassName = 'greeting.app.App' 
+    mainModule = 'app'
+}
 
 dependencies {
     
