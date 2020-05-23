@@ -4,6 +4,15 @@ allprojects {
     }
 }
 
+allprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
 subprojects {
     version = '1.0'
 }
@@ -11,5 +20,5 @@ subprojects {
 
 wrapper {
     distributionType = Wrapper.DistributionType.BIN
-    gradleVersion = "6.3"
+    gradleVersion = "6.4"
 }
