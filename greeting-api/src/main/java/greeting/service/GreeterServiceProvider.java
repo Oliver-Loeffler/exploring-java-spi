@@ -1,9 +1,9 @@
 package greeting.service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ServiceLoader;
+import java.util.ServiceLoader.Provider;
+import java.util.stream.Collectors;
 
 import greeting.service.spi.Greeter;
 
@@ -25,13 +25,11 @@ public class GreeterServiceProvider {
     }
 	
 	public List<Greeter> getAllAvailableImplementations() {
-		List<Greeter> discoveredImplementations = new ArrayList<>();
-		Iterator<Greeter> availableImplementations = loader.iterator();
-		while(availableImplementations.hasNext()) {
-			Greeter greeter = availableImplementations.next();
-			discoveredImplementations.add(greeter);
-		}
-		return discoveredImplementations;
+		List<Greeter> greeterImplementations = loader.stream()
+													 .map(Provider::get)
+													 .collect(Collectors.toList());
+		
+		return greeterImplementations;
     }
 	
 	public Greeter getGreeter() {
