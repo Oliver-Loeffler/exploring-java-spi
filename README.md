@@ -1,9 +1,9 @@
 # Exploring Java Service Provider Interface (SPI)
 
 #### Platform: Java 8
-The way how the service provider interface API works has changed with Java 9.
-All details below apply to Java 7 or Java 8, details for most recent Java versions will be added later.
-For JPMS there will be a separate project.
+
+All details below apply to Java 7 or Java 8. In case of a non-modular setup (so no use of Java Platform Module System, JPMS) this code will also work with Java 9, 11 or beyond.
+
 
 ## Idea
 
@@ -66,6 +66,12 @@ dependencies {
 }
 
 ```
+
+
+## Flaws
+
+Except the sub-project `custom-greeting-library`, the code of all other sub-projects lives inside the `greeting` package. This will finally lead to the split package problem. In order to properly migrate to Java 11 or beyond including JPMS, the package structure must be reworked.
+
 
 ## Goals
 
