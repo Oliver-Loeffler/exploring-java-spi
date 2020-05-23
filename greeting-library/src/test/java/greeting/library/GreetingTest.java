@@ -13,14 +13,14 @@ public class GreetingTest {
 	private Greeter classUnderTest;
 	
 	@Test
-	void that_HelloDuke_is_the_greeting() {
+	void testImplementation() {
 		classUnderTest = new Greeting();
 		
 		assertEquals("ProductionLibrary: HelloDuke", classUnderTest.getSalutation());
 	}
 	
 	@Test
-	void that_at_least_one_service_is_found() {
+	void testServiceDiscovery() {
 		
 		GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
 		Greeter greeter = provider.getGreeter();

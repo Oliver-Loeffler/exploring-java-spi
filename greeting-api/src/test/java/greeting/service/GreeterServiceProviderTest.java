@@ -9,7 +9,7 @@ class GreeterServiceProviderTest {
 	private final GreeterServiceProvider classUnderTest = GreeterServiceProvider.getInstance();
 
 	@Test
-	void that_no_services_are_found() {
+	void getGreeterWithoutConfiguration() {
 
 		assertThrows(IllegalArgumentException.class,
 				()->classUnderTest.getGreeter());

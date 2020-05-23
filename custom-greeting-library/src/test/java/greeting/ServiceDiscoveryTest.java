@@ -1,4 +1,4 @@
-package other;
+package greeting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,13 +8,14 @@ import org.junit.jupiter.api.Test;
 
 import greeting.service.GreeterServiceProvider;
 import greeting.service.spi.Greeter;
+import other.Welcome;
 
 public class ServiceDiscoveryTest {
 	
 	private final GreeterServiceProvider provider = GreeterServiceProvider.getInstance();
 	
 	@Test
-	void that_there_is_only_one_service_implementation() {
+	void thereMustBeOnlyOneImplementation() {
 		
 		List<Greeter> greeter = provider.getAllAvailableImplementations();
 		
@@ -23,7 +24,7 @@ public class ServiceDiscoveryTest {
 	}
 	
 	@Test
-	void that_Custom_Service_is_discovered() {
+	void welcomeIsExpectedAsImplementation() {
 		
 		Greeter greeter = provider.getGreeter();
 		
