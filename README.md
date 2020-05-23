@@ -1,8 +1,8 @@
 # Exploring Java Service Provider Interface (SPI)
 
-#### Platform: Java 8
+#### Platform: Java 11+
 
-All details below apply to Java 7 or Java 8. In case of a non-modular setup (so no use of Java Platform Module System, JPMS) this code will also work with Java 9, 11 or beyond.
+All details below apply to Java 11 or later. This project makes use of the Java Platform Module System (JPMS) as introduced with Java 9.
 
 
 ## Idea
@@ -24,7 +24,7 @@ from within the main project.
 
 ```shell
 
-$ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git
+$ git clone https://github.com/Oliver-Loeffler/exploring-java-spi.git  --branch jdk-11
 $ cd exploring-java-spi
 $ gradle clean check run
 
